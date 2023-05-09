@@ -1,0 +1,19 @@
+<div class="pagination-container" *ngIf="(pagination$ | async)?.totalPage">
+  <ngb-pagination
+    class="custom-pagination"
+    [collectionSize]="(pagination$ | async)?.totalPage || 1"
+    [pageSize]="(pagination$ | async)?.pageSize || 10"
+    [maxSize]="5"
+    [rotate]="true"
+    [ellipses]="false"
+    [directionLinks]="true"
+    (pageChange)="onPageChange($event)"
+  >
+    <ng-template ngbPaginationPrevious
+      ><span aria-hidden="true" id="left-arrow">&lsaquo;</span></ng-template
+    >
+    <ng-template ngbPaginationNext
+      ><span aria-hidden="true" id="right-arrow">&rsaquo;</span></ng-template
+    >
+  </ngb-pagination>
+</div>

@@ -1,0 +1,42 @@
+@import "../../../variables.scss";
+
+.pokemon-list {
+  form {
+    input {
+      background-color: $white-pokedex;
+      border-radius: 20px 0 0 20px;
+      border: none;
+    }
+    button {
+      border-radius: 0 20px 20px 0;
+      background-color: $white-pokedex;
+    }
+  }
+  .list-group {
+    overflow: auto;
+    height: 80vh;
+    padding: 0 60px
+  }
+
+  .item-list-pokemon {
+    background-color: $blue-pokedex;
+    border-radius: 115px;
+  }
+
+  .container-header {
+    width: 64%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.85rem 0rem;
+  }
+}

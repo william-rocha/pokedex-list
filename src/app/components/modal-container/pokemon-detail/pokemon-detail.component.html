@@ -1,0 +1,26 @@
+<div class="modal-content px-4">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Detalhes</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true" (click)="onClose.emit()">&times;</span>
+    </button>
+  </div>
+<div class="row">
+  <div class="modal-body col-6">
+    <h1>{{ (pokemon$ | async)?.name }}</h1>
+    <p>Número na Pokédex: {{ (pokemon$ | async)?.id }}</p>
+    <p>Tipo:
+      <span *ngFor="let type of (pokemon$ | async)?.type; let last = last">
+        {{ type.type.name }}{{ last ? '' : ', ' }}
+      </span>
+    </p>
+    <p>Altura: {{ (pokemon$ | async)?.height}} metros</p>
+    <p>Peso: {{ (pokemon$ | async)?.weight }} quilogramas</p>
+
+  </div>
+  <div class="col-6">
+    <img [src]="imageUrl" alt="pic" style="width: 100%;"/>
+  </div>
+</div>
+
+</div>

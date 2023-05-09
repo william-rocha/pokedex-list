@@ -1,0 +1,27 @@
+@import "../../../../variables.scss";
+
+#comment {
+  button {
+    outline: none !important;
+  }
+  app-pokemon-comment {
+    .modal-content {
+      background-color: $gray-pokedex !important;
+    }
+  }
+
+  .modal-content input.form-control,
+  .modal-content textarea.form-control {
+    height: 50px;
+  }
+  #comment-name.form-control {
+    height: 80px;
+    font-size: 22px;
+    border-radius: 8px;
+  }
+  #comment-text.form-control {
+    height: 250px;
+    font-size: 22px;
+    border-radius: 20px;
+  }
+}

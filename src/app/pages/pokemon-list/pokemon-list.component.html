@@ -1,0 +1,34 @@
+<div class="container pokemon-list" *ngIf="pokemonList$ | async">
+  <div class="container-header">
+    <div style="margin: auto; padding: 15px 0">
+      <img src="assets/imgs/logo.png" alt="Logo" />
+    </div>
+
+    <form [formGroup]="searchForm" (submit)="submitSearch(); $event.stopPropagation()">
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" class="form-control" formControlName="searchTerm" (keyup.enter)="submitSearch(); $event.stopPropagation()">
+          <div class="input-group-append">
+            <button class="btn" type="submit" >
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+  <ul
+    class="list-group mt-1"
+    *ngIf="(pokemonList$ | async)?.results?.length"
+  >
+    <li
+      *ngFor="let pokemon of (pokemonList$ | async)?.results"
+      class="list-group-item item-list-pokemon border m-3"
+    >
+      <pokemon-item [pokemon]="pokemon"></pokemon-item>
+    </li>
+    <app-pagination></app-pagination>
+  </ul>
+</div>

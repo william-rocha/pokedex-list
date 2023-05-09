@@ -1,0 +1,44 @@
+<div class="row pokemon-item" (click)="goToDetail(detail, pokemon); $event.stopPropagation()">
+  <div class="col-3 pokemon-pic">
+    <img [src]="imageUrl" alt="{{ pokemon.name }}" />
+  </div>
+
+  <div class="row col-7 pokemon-header">
+    <div class="col-12 pokemon-title">{{ pokemon.name }}</div>
+
+    <div class="row col-12 pokemon-comments">
+      <textarea
+        class="col-8"
+        [ngModel]="personal.comments?.text"
+        placeholder="Adicione o seu comentário aqui..."
+        disabled="true"
+      ></textarea>
+      <div class="col-4 comments-btns">
+        <div class="row" style="flex-wrap: nowrap">
+          <button
+            (click)="removeComment(); $event.stopPropagation()"
+            class="btn remove-comment"
+            type="button"
+          >
+            Excluir comentário
+          </button>
+          <button (click)="goToComment(comment); $event.stopPropagation()" class="btn add-comment" type="button">
+            Adicionar comentário
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-2">
+    <favorite-button [isFavorite$]="(personal$ | async)?.isFavorite" (toggleFavorite)="toggleFavorite()"></favorite-button>
+  </div>
+
+</div>
+
+<ng-template #comment let-modal>
+  <pokemon-comment (onClose)="modal.dismiss('Cross click')"></pokemon-comment>
+</ng-template>
+<ng-template #detail let-modal>
+  <pokemon-detail  (onClose)="modal.dismiss('Cross click')" [select]="selectPokemon"></pokemon-detail>
+</ng-template>

@@ -1,0 +1,63 @@
+@import "../../../variables.scss";
+
+.pokemon-item {
+  align-items: center;
+
+  .pokemon-pic {
+    img {
+      width: 150px;
+    padding-left: 20px;
+    }
+  }
+
+  .pokemon-header {
+    font-size: 16px;
+
+    .pokemon-title {
+      background-color: $yellow-pokedex;
+      border-radius: 20px;
+      height: 35px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+    }
+    .pokemon-comments {
+      textarea {
+        background-color: $yellow-pokedex;
+        border-radius: 20px;
+      }
+
+      .comments-btns {
+        display: flex;
+        align-items: end;
+        .btn {
+          white-space: normal !important;
+          word-wrap: break-word;
+          word-break: normal;
+
+          height: 44px;
+          font-size: 12px;
+          overflow: hidden;
+          display: flex;
+          align-items: flex-end;
+          font-weight: 600;
+        }
+        .remove-comment {
+          background-color: $yellow-pokedex;
+          border-radius: 20px;
+          line-height: normal;
+          margin: 0 8px;
+        }
+        .add-comment {
+          background-color: $red-pokedex;
+          border-radius: 20px;
+          line-height: normal;
+          color: $gray-pokedex;
+        }
+      }
+    }
+  }
+
+
+}
